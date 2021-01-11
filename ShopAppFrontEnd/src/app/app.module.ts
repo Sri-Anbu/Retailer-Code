@@ -21,7 +21,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { authService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { FrontpageComponent } from './frontpage/frontpage.component';
-import { ComparePasswordDirective } from './directives/compare-password.directive';
+
 import { NameheaderComponent } from './nameheader/nameheader.component';
 import { ProductstatusComponent } from './productstatus/productstatus.component';
 import { DeleteproductsComponent } from './deleteproducts/deleteproducts.component';
@@ -42,7 +42,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     AddretailerComponent,
     LoginComponent,
     FrontpageComponent,
-    ComparePasswordDirective,
+  
     NameheaderComponent,
     ProductstatusComponent,
     DeleteproductsComponent,    

@@ -39,6 +39,14 @@ msg:any;
     }
     return false;
   }
+  comparepass(p1,p2)
+  {
+    if(p1.value!==p2.value)
+    {
+      return true;
+    }
+    return false;
+  }
 
   ngOnInit(): void {
   }
