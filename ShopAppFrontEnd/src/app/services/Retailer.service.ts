@@ -46,6 +46,10 @@ export class RetailerService{
     {
         return this.getHttp.get("http://localhost:62441/api/Product/"+id);
     }
+    public ChangePass(retailer:Retailer)
+    {
+        return this.getHttp.put("http://localhost:62441/api/Retailer/changepass",retailer);
+    }
   
 
 }

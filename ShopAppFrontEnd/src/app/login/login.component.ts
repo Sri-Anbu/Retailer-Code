@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
  import { Router, ActivatedRoute } from '@angular/router';  
 import { RetailerService } from '../services/Retailer.service';
 import { authService } from '../services/auth.service';
+import { AuthGuardService } from '../services/auth-guard.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ Username="";
 Password="";
 
   constructor(private authservice:authService,private loginservice:RetailerService, private router: Router, 
-    public activatedRoute: ActivatedRoute, private cookieService: CookieService) { 
+    public activatedRoute: ActivatedRoute, private cookieService: CookieService ,private authguardservice:AuthGuardService) { 
     this.retailer=new Retailer();
   }
 
@@ -38,13 +39,16 @@ Password="";
     }
 
   processResults() {
-      console.log(this.user);
+     // console.log(this.user);
       this.authservice.retailerid=this.user.Retail_Id;
       console.log(this.authservice.retailerid);
-      console.log(this.user.Retail_Id);
+     console.log(this.user.Retail_Id);
       this.cookieService.set('username', this.user.Retail_Name);
       this.cookieService.set('password', this.user.Retail_Password);
+      this.cookieService.set('isauthenticated','true');
       this.authservice.isLogged=true;
+      this.authguardservice.retailer=this.user;
+    //  console.log(this.authservice.retailer);
       this.router.navigate(['/FrontPage']);
 
   }
@@ -60,10 +64,7 @@ Password="";
            
       
       
-      
-      //   u=>{this.user = u; this.msg=undefined; const obj=this.user},
-    
-      // err=>this.msg = err.error.Message);  
+
      
      
       

@@ -21,7 +21,7 @@ namespace Shop_App.Controllers
             return entities.Retailers.ToList();
         }
         [HttpPut]
-        [Route("api/Retailer/change pass")]
+        [Route("api/Retailer/changepass")]
         public HttpResponseMessage changePass(Retailer retailer)
         {
             try
@@ -47,17 +47,17 @@ namespace Shop_App.Controllers
 
 
         }
-        [HttpGet]
-        [Route("api/Retailer/revenue/{id}")]
-        public IEnumerable< retailer_revdetails_Result> Retailer_Tally(int id)
-        {
-            //
-            List<retailer_revdetails_Result> Retailer_Orders = new List<retailer_revdetails_Result>();
-            Retailer_Orders = entities.retailer_revdetails(id).ToList();
+        //[HttpGet]
+        //[Route("api/Retailer/revenue/{id}")]
+        //public IEnumerable< retailer_revdetails_Result> Retailer_Tally(int id)
+        //{
+        //    //
+        //    List<retailer_revdetails_Result> Retailer_Orders = new List<retailer_revdetails_Result>();
+        //    Retailer_Orders = entities.retailer_revdetails(id).ToList();
            
-            return Retailer_Orders.ToList();
+        //    return Retailer_Orders.ToList();
 
-        }
+        //}
   
         [HttpGet]
         [Route("api/Retailer/details/{id}")]

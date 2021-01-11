@@ -11,12 +11,14 @@ import { Retailer } from '../models/Retailer.model';
 export class authService{
     isLogged:boolean=false;
     retailerid:number;
+    
     constructor(private getHttp:HttpClient,private cookieService: CookieService)
     {
 
     }
     public isAuthenticated(): boolean {
-        if(this.isLogged)
+     
+        if(this.cookieService.get('isauthenticated'))
         {
             return true;
         }

@@ -7,7 +7,7 @@ import { authService } from './auth.service';
   providedIn: 'root'
 })
 export class AuthGuardService implements CanActivate{
-
+retailer:any;
   constructor(public auth: authService, public router: Router) { }
 
   canActivate(): boolean {

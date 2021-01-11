@@ -45,20 +45,10 @@ msg:any;
     this.deleteproduct.Update_Status="delete";
     this.deleteproduct.Retail_Id=this.productdetails.Retail_Id;
     console.log(this.deleteproduct);  
-    this.updateproductservice.updateProducts(this.deleteproduct).subscribe(u=>{this.deletedproduct = u},
-      err=>this.msg = err.error.Message);
+    this.updateproductservice.updateProducts(this.deleteproduct).subscribe(u=>{this.deletedproduct = u; alert('Delete request submitted successfully')},
+      err=>this.msg = err.error.Message);   
+      
   }
 
-
 }
-// export class deleteProduct
-// {
-//   Prod_Id:number;
-//   Prod_Name:string;
-//   Prod_Price:number;
-//   Prod_Quantity:number;
-//   Update_Status:string;
-//   Retail_Id:number;
 
-
-// }

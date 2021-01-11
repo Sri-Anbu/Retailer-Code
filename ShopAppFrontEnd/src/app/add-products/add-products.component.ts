@@ -23,7 +23,8 @@ products:any;
 addproduct:any;
 checkval:string;
 catlist:any;
-
+fileToUpload: any;
+  imageUrl: any;
 msg:string;
   constructor(private categoryservice:CategoryService,
     private retailerservice:RetailerService,
@@ -54,9 +55,11 @@ msg:string;
     {
      // this.product.Prod_Price=this.product.Prod_Price;
      this.product.Retail_Id=this.authservice.retailerid;
+     this.product.Prod_Image= this.imageUrl;
       console.log(this.product);
       this.addproductservics.addproduct(this.product).subscribe(u=>{this.addproduct = u;console.log(this.addproduct)},
         err=>this.msg = err.error.Message);
+      alert('Product added successfully');
     }
     processResults()
     {
@@ -65,7 +68,15 @@ msg:string;
       console.log(this.catlist);
 
     }
-    
+    handleFileInput(file: FileList) {
+      this.fileToUpload = file.item(0);
+      let reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+      console.log(this.imageUrl);
+    }
+    reader.readAsDataURL(this.fileToUpload);
+  }
 
 
   ngOnInit(): void {

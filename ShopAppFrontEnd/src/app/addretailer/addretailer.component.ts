@@ -18,14 +18,12 @@ msg:any;
     this.dummy=new Dummy();
   }
 
-
   Add()
   {
     console.log(this.retailer);
     this.addretailerservice.addretailer(this.retailer).subscribe( 
-      u=>{this.user = u; this.msg=undefined;console.log(this.user)},
+      u=>{this.user = u; this.msg=undefined;console.log(this.user);alert('Registerd Successfully')},
       err=>this.msg = err.error.Message);
-
   }
   ngOnInit(): void {
   }

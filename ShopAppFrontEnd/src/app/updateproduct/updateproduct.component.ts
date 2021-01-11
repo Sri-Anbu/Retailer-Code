@@ -14,11 +14,7 @@ import { UpdateProductService } from '../services/updateproduct.service';
 export class UpdateproductComponent implements OnInit {
 products:any;
 retailers:any;
-// arrUsers:Array<any> = [
-//   {
-//     Prod_Id:null,
-//    Prod_Name:""
-//   }]
+
 updateproduct:updateproduct;
 updated_Products:any;
 retproducts:any;
@@ -39,16 +35,13 @@ msg:any;
       this.retproducts=a;
     })
   }
-
-
-
-  
+ 
     onSubmit()
       { 
     this.updateproduct.Retail_Id=this.authservic.retailerid;
    this.updateproduct.Update_Status="pending";
     console.log(this.updateproduct);
-    this.updateproductservice.updateProducts(this.updateproduct).subscribe(u=>{this.updated_Products = u},
+    this.updateproductservice.updateProducts(this.updateproduct).subscribe(u=>{this.updated_Products = u;alert('Update Request submitted successfully')},
       err=>this.msg = err.error.Message);
       console.log(this.updated_Products);
   }

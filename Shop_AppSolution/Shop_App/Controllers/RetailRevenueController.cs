@@ -16,31 +16,44 @@ namespace Shop_App.Controllers
         Shopping_AppEntities entities = new Shopping_AppEntities();
        [HttpGet]
         [Route("api/RetailRevenue/amount/{id}")]
-        public decimal Retailer_Amount(int id)
+        public HttpResponseMessage Retailer_Amount(int id)
         {
           
             decimal price = 0;
             List<retailer_revdetails_Result> Retailer_Orders = new List<retailer_revdetails_Result>();
             Retailer_Orders = entities.retailer_revdetails(id).ToList();
             foreach (retailer_revdetails_Result item in Retailer_Orders)
-                {
-                    price = price + item.Total.Value;
+            {
+                price = price + item.Total.Value;
 
-                }
-              
-            return price;
+
+            }
+             if (Retailer_Orders != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.Created, price);
+            }
+
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "retailer Does Not Exist");
+            }
 
         }
         [HttpGet]
-        [Route("api/RetailRevenue/revenue")]
-        public IEnumerable<retailer_revdetails_Result> Retailer_Tally(int id)
+        [Route("api/RetailRevenue/revenue/{id}")]
+        public HttpResponseMessage Retailer_Tally(int id)
         {
-            //
             List<retailer_revdetails_Result> Retailer_Orders = new List<retailer_revdetails_Result>();
             Retailer_Orders = entities.retailer_revdetails(id).ToList();
+            if (Retailer_Orders != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.Created, Retailer_Orders);
+            }
 
-            return Retailer_Orders.ToList();
-
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "retailer Does Not Exist");
+            }
         }
         [HttpGet]
         [Route("api/RetailRevenue/productstatus/{id}")]

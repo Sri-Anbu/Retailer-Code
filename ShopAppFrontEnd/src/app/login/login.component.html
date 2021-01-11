@@ -1,4 +1,9 @@
+<div class="head">
+<h3 style="text-align: center;">A-Z Store</h3>
+</div>
 <div class="header">
+  <br>
+<br>
 <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
    <div class="form-group">
        <label for="name" style="color:azure;" >Enter E-Mail</label>
@@ -18,11 +23,16 @@
        Password is required
        </div>
    </div>
+   <br>
+   <a href="forgetpassword">Forget Password</a>
+   <br>
+   <br>
 
    <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">  Login  </button> 
     &nbsp;
     &nbsp;
     &nbsp;
+
    <button class="btn btn-success" (click)="Sign_Up()">  Sign-Up  </button> 
 
   

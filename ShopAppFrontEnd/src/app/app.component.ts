@@ -15,7 +15,7 @@ export class AppComponent {
   user:string;
   constructor(private router: Router, public activatedRoute: ActivatedRoute,private cookieService:CookieService,private authservice:authService) {
     this.user=this.cookieService.get('username');
-    console.log(this.user);
+   // console.log(this.user);
     }
  
    

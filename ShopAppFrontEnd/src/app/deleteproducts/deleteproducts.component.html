@@ -1,3 +1,8 @@
+<app-nameheader></app-nameheader>
+<div class="header">
+<br>
+<br>
+<br>
 <table  class="table table-striped">
     <tr *ngIf="retailerproducts">
     <th>Product ID</th>
@@ -9,10 +14,10 @@
         <td>{{p.Prod_Id}}</td>
         <td> {{p.Prod_Name}} </td>
         <td>{{p.Prod_Status}}</td> 
+        <td><img src="{{p.Prod_Image}}" width="50px" ></td>
         <button  class="btn btn-danger" (click)="DeleteProduct(p.Prod_Id)">  Delete Product  </button>   
      
 </tr>
 </table>
-<div *ngIf="deletedproduct">
-    Request has been Submitted.
 </div>
+

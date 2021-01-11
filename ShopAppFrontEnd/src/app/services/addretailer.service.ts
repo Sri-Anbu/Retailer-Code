@@ -15,7 +15,7 @@ export class addRetailerervice{
     }
     public getOneRetailer(id:number)
     {
-        return this.getHttp.get("http://localhost:62441/api/Retailer/revenue/"+id);
+        return this.getHttp.get("http://localhost:62441/api/RetailRevenue/revenue/"+id);
 
     }
    

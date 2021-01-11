@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
  import { Router, ActivatedRoute } from '@angular/router';  
  import { RouterLink, } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { addRetailerervice } from '../services/addretailer.service';
 import { authService } from '../services/auth.service';
 import { RetailerService } from '../services/Retailer.service';
@@ -12,7 +13,9 @@ import { RetailerService } from '../services/Retailer.service';
 })
 export class FrontpageComponent implements OnInit {
  msg:boolean;
-  constructor(private addservice:addRetailerervice,private router:Router,private retailerservice:RetailerService,private authservice:authService) { }
+  constructor(private addservice:addRetailerervice,private router:Router,
+    private retailerservice:RetailerService,private authservice:authService,
+    private cookieService:CookieService) { }
   Details()
   {
    // this.addservice.getOneRetailer(this.authservice.retailerid).subscribe();
@@ -27,6 +30,10 @@ export class FrontpageComponent implements OnInit {
   DeleteSure()
   {
     this.retailerservice.DeleteAccount( this.authservice.retailerid).subscribe();
+    this.cookieService.deleteAll();
+    this.router.navigate(['']);
+    
+   
   }
   Add_Product()
   {

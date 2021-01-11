@@ -42,7 +42,7 @@ namespace Shop_App.Controllers
         {
             try
             {
-                product.Prod_Status = "waiting";
+                product.Prod_Status = "approved";
                 entities.Products.Add(product);
                 entities.SaveChanges();
             }
@@ -76,6 +76,7 @@ namespace Shop_App.Controllers
 
         }
         [HttpGet]
+        //delete product
         [Route("api/Product/retailer/{id}")]
         public HttpResponseMessage Retailerdetail(int id)
         {

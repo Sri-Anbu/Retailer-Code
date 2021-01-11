@@ -1,6 +1,3 @@
-import { DecimalPipe } from "@angular/common";
-
-
 export class Product
 {
        Prod_Id :number;
